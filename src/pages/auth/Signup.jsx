@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Mail, Lock, User, Eye, EyeOff, Sparkles, ArrowRight, ArrowLeft, Ruler, Weight, Calendar } from 'lucide-react';
 import { GlassCard, GlassButton, GlassInput } from '../../components/ui/Components';
 import { useAuthStore } from '../../store/healthStore';
+import { mockBackend } from '../../utils/mockBackend';
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ export default function Signup() {
   });
   const [showPw, setShowPw] = useState(false);
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const update = (key, val) => { setForm(f => ({ ...f, [key]: val })); setErrors({}); };
 
@@ -34,15 +36,22 @@ export default function Signup() {
     if (step === 1 && validateStep1()) setStep(2);
   };
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
+    setLoading(true);
+    const response = await mockBackend.registerUser(form.email, form.password, form.name);
+    setLoading(false);
+
+    if (!response.success) {
+      alert(response.error);
+      return;
+    }
+
     login({ 
-      name: form.name, 
-      email: form.email, 
+      ...response.user,
       age: form.age, 
       gender: form.gender,
       height: form.height,
       weight: form.weight,
-      id: Date.now() 
     });
     navigate('/onboarding/1');
   };
@@ -166,8 +175,8 @@ export default function Signup() {
                 <GlassButton onClick={() => setStep(1)}>
                   <ArrowLeft size={18} /> Back
                 </GlassButton>
-                <GlassButton variant="primary" fullWidth onClick={handleSignup}>
-                  Create Account <ArrowRight size={18} />
+                <GlassButton variant="primary" fullWidth onClick={handleSignup} disabled={loading}>
+                  {loading ? 'Creating...' : <><ArrowRight size={18} /> Create Account</>}
                 </GlassButton>
               </div>
             </motion.div>

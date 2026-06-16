@@ -24,7 +24,11 @@ export default function EmergencySOS() {
                 <AlertTriangle size={36} color="#fff" />
               </motion.div>
               <h2 className="font-display" style={{ fontSize: '1.5rem', fontWeight: 700, color: '#FF6B35', marginBottom: 8 }}>Confirm SOS Alert</h2>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: 24 }}>This will notify all your emergency contacts with your current location. Are you sure?</p>
+              <div style={{ background: 'rgba(255,107,53,0.1)', padding: 12, borderRadius: 8, marginBottom: 16, border: '1px solid rgba(255,107,53,0.3)' }}>
+                <p style={{ color: '#FF6B35', fontSize: '0.85rem', fontWeight: 600 }}>[DEMO MODE]</p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>No real emergency services will be contacted.</p>
+              </div>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: 24 }}>This will mock notifying all your emergency contacts with your current location. Are you sure?</p>
               <div style={{ display: 'flex', gap: 12 }}>
                 <GlassButton fullWidth onClick={handleCancel}><X size={16} /> Cancel</GlassButton>
                 <GlassButton variant="danger" fullWidth onClick={handleConfirm}><Siren size={16} /> SEND SOS</GlassButton>
@@ -40,7 +44,10 @@ export default function EmergencySOS() {
                 <Siren size={36} color="#fff" />
               </motion.div>
               <h2 className="font-display" style={{ fontSize: '1.5rem', fontWeight: 700, color: '#FF0040', marginBottom: 8 }}>SOS ACTIVE</h2>
-              <p style={{ color: 'var(--text-secondary)', marginBottom: 16 }}>Emergency alert sent to {contacts.length} contacts</p>
+              <div style={{ background: 'rgba(255,0,64,0.1)', padding: 12, borderRadius: 8, marginBottom: 16, border: '1px solid rgba(255,0,64,0.3)' }}>
+                <p style={{ color: '#FF0040', fontSize: '0.85rem', fontWeight: 600 }}>[DEMO MODE: SIMULATED NETWORK CALL]</p>
+              </div>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: 16 }}>Emergency alert simulated for {contacts.length} contacts</p>
               <div style={{ marginBottom: 20 }}>
                 {contacts.slice(0, 3).map(c => (
                   <div key={c.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, padding: 6 }}>

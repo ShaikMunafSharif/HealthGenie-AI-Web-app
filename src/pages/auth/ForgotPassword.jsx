@@ -37,8 +37,12 @@ export default function ForgotPassword() {
                 <CheckCircle size={64} style={{ color: 'var(--neon-health)' }} />
               </motion.div>
               <h2 className="font-display" style={{ fontSize: '1.5rem', fontWeight: 700, marginBottom: 8 }}>Check Your Email</h2>
+              <div style={{ background: 'rgba(0,245,255,0.1)', padding: 12, borderRadius: 8, marginBottom: 16, border: '1px solid rgba(0,245,255,0.3)' }}>
+                <p style={{ color: '#00F5FF', fontSize: '0.85rem', fontWeight: 600 }}>[DEMO MODE: SIMULATED EMAIL]</p>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>No actual email has been sent.</p>
+              </div>
               <p style={{ color: 'var(--text-secondary)', marginBottom: 24 }}>
-                We've sent a password reset link to<br />
+                We've mocked sending a password reset link to<br />
                 <strong style={{ color: 'var(--neon-pulse)' }}>{email}</strong>
               </p>
               <Link to="/login">

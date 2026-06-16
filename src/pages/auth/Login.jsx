@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Mail, Lock, Eye, EyeOff, Sparkles, ArrowRight } from 'lucide-react';
 import { GlassCard, GlassButton, GlassInput } from '../../components/ui/Components';
 import { useAuthStore } from '../../store/healthStore';
+import { mockBackend } from '../../utils/mockBackend';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -25,11 +26,16 @@ export default function Login() {
     if (Object.keys(errs).length) return setErrors(errs);
     
     setLoading(true);
-    // Simulate auth — in production this would be Supabase
-    setTimeout(() => {
-      login({ email, name: email.split('@')[0], id: Date.now() });
-      navigate('/dashboard');
-    }, 1000);
+    const response = await mockBackend.loginUser(email, password);
+    setLoading(false);
+    
+    if (!response.success) {
+      setErrors({ password: response.error });
+      return;
+    }
+    
+    login(response.user);
+    navigate('/dashboard');
   };
 
   return (

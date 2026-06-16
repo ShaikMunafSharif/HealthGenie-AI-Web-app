@@ -1,5 +1,6 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware';
+import { secureStorage } from '../utils/secureStorage';
 
 // ━━━ AUTH STORE ━━━
 export const useAuthStore = create(
@@ -16,7 +17,7 @@ export const useAuthStore = create(
       setSetupComplete: () => set({ hasCompletedSetup: true }),
       updateProfile: (data) => set((s) => ({ user: { ...s.user, ...data } })),
     }),
-    { name: 'healthgenie-auth' }
+    { name: 'healthgenie-auth', storage: createJSONStorage(() => secureStorage) }
   )
 );
 
@@ -63,7 +64,7 @@ export const useHealthStore = create(
         )
       })),
     }),
-    { name: 'healthgenie-health' }
+    { name: 'healthgenie-health', storage: createJSONStorage(() => secureStorage) }
   )
 );
 
@@ -101,7 +102,7 @@ export const useWaterStore = create(
         }));
       },
     }),
-    { name: 'healthgenie-water' }
+    { name: 'healthgenie-water', storage: createJSONStorage(() => secureStorage) }
   )
 );
 
@@ -121,7 +122,7 @@ export const useDietStore = create(
         mealsLogged: [...s.mealsLogged, { ...meal, timestamp: new Date().toISOString() }]
       })),
     }),
-    { name: 'healthgenie-diet' }
+    { name: 'healthgenie-diet', storage: createJSONStorage(() => secureStorage) }
   )
 );
 
@@ -160,7 +161,7 @@ export const useWomenStore = create(
         return diff + 1;
       },
     }),
-    { name: 'healthgenie-women' }
+    { name: 'healthgenie-women', storage: createJSONStorage(() => secureStorage) }
   )
 );
 
@@ -202,7 +203,7 @@ export const usePregnancyStore = create(
         weeklyNotes: [...s.weeklyNotes, { ...note, date: new Date().toISOString() }]
       })),
     }),
-    { name: 'healthgenie-pregnancy' }
+    { name: 'healthgenie-pregnancy', storage: createJSONStorage(() => secureStorage) }
   )
 );
 
@@ -227,7 +228,7 @@ export const useEmergencyStore = create(
       activateSOS: () => set({ sosActive: true }),
       deactivateSOS: () => set({ sosActive: false }),
     }),
-    { name: 'healthgenie-emergency' }
+    { name: 'healthgenie-emergency', storage: createJSONStorage(() => secureStorage) }
   )
 );
 
@@ -260,7 +261,7 @@ export const useNotificationStore = create(
       })),
       unreadCount: () => 0, // Computed in components
     }),
-    { name: 'healthgenie-notifications' }
+    { name: 'healthgenie-notifications', storage: createJSONStorage(() => secureStorage) }
   )
 );
 
@@ -291,7 +292,7 @@ export const useChatStore = create(
       closeChat: () => set({ isOpen: false }),
       clearHistory: () => set({ messages: [] }),
     }),
-    { name: 'healthgenie-chat' }
+    { name: 'healthgenie-chat', storage: createJSONStorage(() => secureStorage) }
   )
 );
 
@@ -354,7 +355,7 @@ export const useExerciseStore = create(
           : [...s.favoriteExercises, exercise]
       })),
     }),
-    { name: 'healthgenie-exercise' }
+    { name: 'healthgenie-exercise', storage: createJSONStorage(() => secureStorage) }
   )
 );
 
@@ -386,6 +387,6 @@ export const useStreakStore = create(
         }));
       },
     }),
-    { name: 'healthgenie-streaks' }
+    { name: 'healthgenie-streaks', storage: createJSONStorage(() => secureStorage) }
   )
 );

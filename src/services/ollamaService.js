@@ -79,8 +79,11 @@ export async function checkOllamaStatus() {
   }
 }
 
+import { sanitizePrompt } from '../utils/sanitizer';
+
 export async function* streamHealthGenie(prompt, context = 'general', options = {}) {
   const systemPrompt = SYSTEM_PROMPTS[context] || SYSTEM_PROMPTS.general;
+  const safePrompt = sanitizePrompt(prompt);
   
   try {
     const response = await fetch(`${OLLAMA_BASE}/api/generate`, {
@@ -88,7 +91,7 @@ export async function* streamHealthGenie(prompt, context = 'general', options = 
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: options.model || DEFAULT_MODEL,
-        prompt: prompt,
+        prompt: safePrompt,
         system: systemPrompt,
         stream: true,
         options: {
