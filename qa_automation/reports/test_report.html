@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HealthGenie AI — Selenium Test Report</title>
+<style>
+body{font-family:Inter,sans-serif;background:#020510;color:#e0e8f0;margin:0;padding:0}
+.header{background:linear-gradient(135deg,rgba(0,245,255,0.1),rgba(57,255,20,0.05));border-bottom:1px solid rgba(0,245,255,0.2);padding:32px 40px}
+h1{font-size:2rem;margin:0;background:linear-gradient(90deg,#00F5FF,#39FF14);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.meta{color:#8a9ab0;margin-top:8px;font-size:0.9rem}
+.dashboard{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;padding:32px 40px}
+.card{background:rgba(10,25,60,0.6);border:1px solid rgba(0,245,255,0.15);border-radius:16px;padding:24px;text-align:center}
+.card .num{font-size:2.5rem;font-weight:700;font-family:monospace}
+.card .label{color:#8a9ab0;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px}
+.total .num{color:#00F5FF}
+.passed .num{color:#39FF14}
+.failed .num{color:#FF0040}
+.skipped .num{color:#FFB347}
+.rate .num{color:#BF5FFF}
+table{width:calc(100% - 80px);margin:0 40px 40px;border-collapse:collapse;font-size:0.88rem}
+th{background:rgba(0,245,255,0.08);color:#00F5FF;padding:12px 16px;text-align:left;border-bottom:1px solid rgba(0,245,255,0.2)}
+td{padding:10px 16px;border-bottom:1px solid rgba(255,255,255,0.05)}
+.section-title{padding:8px 40px 0;color:#8a9ab0;text-transform:uppercase;letter-spacing:0.1em;font-size:0.78rem}
+.badge{padding:2px 10px;border-radius:12px;font-size:0.8rem;font-weight:600;}
+.badge-pass{background:#39FF14;color:#000;}
+.badge-fail{background:#FF0040;color:#fff;}
+.badge-skip{background:#FFB347;color:#000;}
+.row-pass{background:#1a3a1a;}
+.row-fail{background:#3a1a1a;}
+.row-skip{background:#2a2a1a;}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>HealthGenie AI — Selenium E2E Test Report</h1>
+<div class="meta">Generated: 2026-06-16 14:34:01 &nbsp;|&nbsp; Tester: QA Automation Suite &nbsp;|&nbsp; Target: https://ShaikMunafSharif.github.io/HealthGenie-AI-Web-app</div>
+</div>
+<div class="dashboard">
+<div class="card total"><div class="num">59</div><div class="label">Total Tests</div></div>
+<div class="card passed"><div class="num">53</div><div class="label">Passed</div></div>
+<div class="card failed"><div class="num">6</div><div class="label">Failed</div></div>
+<div class="card skipped"><div class="num">0</div><div class="label">Skipped</div></div>
+<div class="card rate"><div class="num">89.8%</div><div class="label">Pass Rate</div></div>
+</div>
+<p class="section-title">Test Results</p>
+<table>
+<thead><tr><th>Test ID</th><th>Test Name</th><th>Category</th><th>Status</th><th>Browser</th></tr></thead>
+<tbody>
+<tr class="row-pass"><td>TC-AUTH-001</td><td>Login accepts any credentials (mock auth)</td><td>Authentication</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-AUTH-002</td><td>Invalid email format triggers validation</td><td>Authentication</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-AUTH-003</td><td>Empty email field blocked</td><td>Authentication</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-AUTH-004</td><td>Empty password blocked</td><td>Authentication</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-AUTH-005</td><td>Short password rejected</td><td>Authentication</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-AUTH-006</td><td>Session persists after refresh</td><td>Authentication</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-AUTH-007</td><td>Logout clears auth state</td><td>Authentication</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-AUTH-008</td><td>Unauthenticated access redirected</td><td>Authentication</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-NAV-001</td><td>Splash page loads</td><td>Navigation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-NAV-002</td><td>Dashboard loads when authenticated</td><td>Navigation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-fail"><td>TC-NAV-003</td><td>Unauthenticated redirected (CRIT-03)</td><td>Navigation</td><td><span class="badge badge-fail">FAIL</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-NAV-004</td><td>Health Score route loads</td><td>Navigation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-NAV-005</td><td>Symptoms route loads</td><td>Navigation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-NAV-006</td><td>Emergency route loads</td><td>Navigation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-NAV-007</td><td>Water tracker route loads</td><td>Navigation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-NAV-008</td><td>Settings profile route loads</td><td>Navigation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-NAV-009</td><td>Analytics route loads</td><td>Navigation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-NAV-010</td><td>Page refresh retains route</td><td>Navigation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-FORM-001</td><td>Login form required fields present</td><td>Form Validation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-FORM-002</td><td>Empty login submission blocked</td><td>Form Validation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-FORM-003</td><td>Invalid email rejected</td><td>Form Validation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-FORM-004</td><td>Short password rejected</td><td>Form Validation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-FORM-005</td><td>Signup form loads with fields</td><td>Form Validation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-FORM-006</td><td>Password mismatch blocks signup</td><td>Form Validation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-FORM-007</td><td>Forgot password form loads</td><td>Form Validation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-FORM-008</td><td>Invalid email in forgot password</td><td>Form Validation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-FORM-009</td><td>Profile form has multiple inputs</td><td>Form Validation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-FORM-010</td><td>Emergency contact form has fields</td><td>Form Validation</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-UI-001</td><td>Splash page has visible elements</td><td>UI Functional</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-UI-002</td><td>Dashboard renders glass-cards</td><td>UI Functional</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-UI-003</td><td>Dashboard has heading</td><td>UI Functional</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-UI-004</td><td>Profile page has form inputs</td><td>UI Functional</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-UI-005</td><td>Login page has all UI elements</td><td>UI Functional</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-UI-006</td><td>Health Score page renders</td><td>UI Functional</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-UI-007</td><td>Emergency page has SOS element</td><td>UI Functional</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-UI-008</td><td>Signup shows multi-step form</td><td>UI Functional</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-UI-009</td><td>Symptom select page loads</td><td>UI Functional</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-UI-010</td><td>Floating chat button visible</td><td>UI Functional</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-fail"><td>TC-SEC-001</td><td>Direct URL access documented (CRIT-03)</td><td>Security UI</td><td><span class="badge badge-fail">FAIL</span></td><td>Chrome</td></tr>
+<tr class="row-fail"><td>TC-SEC-002</td><td>PHI stored in plaintext (CRIT-02)</td><td>Security UI</td><td><span class="badge badge-fail">FAIL</span></td><td>Chrome</td></tr>
+<tr class="row-fail"><td>TC-SEC-003</td><td>Auth bypass via localStorage (CRIT-03)</td><td>Security UI</td><td><span class="badge badge-fail">FAIL</span></td><td>Chrome</td></tr>
+<tr class="row-fail"><td>TC-SEC-004</td><td>All localStorage keys readable (CRIT-02)</td><td>Security UI</td><td><span class="badge badge-fail">FAIL</span></td><td>Chrome</td></tr>
+<tr class="row-fail"><td>TC-SEC-005</td><td>SOS makes no real network call (CRIT-04)</td><td>Security UI</td><td><span class="badge badge-fail">FAIL</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-SEC-006</td><td>No passwords in localStorage</td><td>Security UI</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-XB-001</td><td>Splash page loads - Chrome</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-XB-001</td><td>Splash page loads - Firefox</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Firefox</td></tr>
+<tr class="row-pass"><td>TC-XB-001</td><td>Splash page loads - Edge</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Edge</td></tr>
+<tr class="row-pass"><td>TC-XB-002</td><td>Login page renders - Chrome</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-XB-002</td><td>Login page renders - Firefox</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Firefox</td></tr>
+<tr class="row-pass"><td>TC-XB-002</td><td>Login page renders - Edge</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Edge</td></tr>
+<tr class="row-pass"><td>TC-XB-003</td><td>Dashboard loads authenticated - Chrome</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-XB-003</td><td>Dashboard loads authenticated - Firefox</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Firefox</td></tr>
+<tr class="row-pass"><td>TC-XB-003</td><td>Dashboard loads authenticated - Edge</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Edge</td></tr>
+<tr class="row-pass"><td>TC-XB-004</td><td>localStorage accessible - Chrome</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-XB-004</td><td>localStorage accessible - Firefox</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Firefox</td></tr>
+<tr class="row-pass"><td>TC-XB-004</td><td>localStorage accessible - Edge</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Edge</td></tr>
+<tr class="row-pass"><td>TC-XB-005</td><td>Login form functional - Chrome</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Chrome</td></tr>
+<tr class="row-pass"><td>TC-XB-005</td><td>Login form functional - Firefox</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Firefox</td></tr>
+<tr class="row-pass"><td>TC-XB-005</td><td>Login form functional - Edge</td><td>Cross Browser</td><td><span class="badge badge-pass">PASS</span></td><td>Edge</td></tr>
+</tbody>
+</table>
+</body>
+</html>
